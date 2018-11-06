@@ -9,7 +9,7 @@ request.onload = function () {
 
   if (request.status >= 200 && request.status < 400) {
     data.forEach(post => {
-      console.log(post.title);
+      $(".row").append(toTemplate(post));
     });
   } else {
     console.log('error');
@@ -18,3 +18,17 @@ request.onload = function () {
 
 // Send request
 request.send();
+
+toTemplate = function(post){
+	console.log(post);
+	var postString = "";
+	postString += "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>";
+		postString += "<div class='post'>"
+			postString += "<div class='title'>"+post.title+"</div>";
+			postString += "<div class='body'>"+post.body+"</div>";
+			postString += "<div class='userId subtext'>User: "+post.userId+"</div>";
+			postString += "<div class='postId subtext'>Id: "+post.id+"</div>";
+		postString += "</div>"
+	postString += "</div>"
+	return postString;
+}
