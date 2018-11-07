@@ -5,11 +5,12 @@ $(document).ready(function(){
 		$(this).toggleClass('selected');
 	});
 
-	//Parse select input
+	//Parse select input and run associated code
 	$( "#target" ).change(function() {
 		showAll();
 		var selection = $('#target').val();
 
+		//Select based on input
 		switch(selection){
 			case "all":
 				selectAll();
@@ -20,13 +21,11 @@ $(document).ready(function(){
 			case "even":
 				selectEven();
 				break;
-
 		}
-		
 	});
-
 });
 
+//Helper Functions
 showAll = function(){
 	$(".post-wrapper").show();
 }
@@ -38,7 +37,7 @@ selectAll = function(){
 selectEven = function(){
 	$(".post-wrapper").each(function(){
 		var Id = $(this).attr('id');
-		if(Id % 2 != 0){
+		if(Id % 2 == 1){
 			$(this).slideToggle("fast");
 		}
 	});
@@ -47,7 +46,7 @@ selectEven = function(){
 selectOdd = function(){
 	$(".post-wrapper").each(function(){
 		var Id = $(this).attr('id');
-		if(Id % 2 != 1){
+		if(Id % 2 == 0){
 			$(this).slideToggle("fast");
 		}
 	});
