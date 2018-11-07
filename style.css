@@ -35,3 +35,18 @@
 	position: absolute;
 	bottom:0;
 }
+
+.criteria{
+	text-align:center;
+}
+
+.selected{
+	background-image:url('logo.jpg');
+	background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.picture{
+	display: inline-block;
+	position:relative;
+}
